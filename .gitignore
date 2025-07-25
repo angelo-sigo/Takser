@@ -1,3 +1,5 @@
 # Dependências do projeto
-
 node_modules/
+
+# Configurações locais
+.env

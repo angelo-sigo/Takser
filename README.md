@@ -9,8 +9,8 @@ Construir uma aplicação fullstack que permita aos usuários cadastrar, visuali
 ## 🚀 Tecnologias Utilizadas
 
 - **Frontend:** `HTML`, `CSS` e `JavaScript` (Vanilla)
-- **Backend:** `Node.js` e `Express`
-- **Dados:** Arquivo `JSON`
+- **Backend:** `Node.js`, `Express` e `Dotenv`
+- **Persistência de Dados:** Armazenamento local via arquivo `JSON`
 - **Ambiente:** Desenvolvido via `Termux` + `Neovim` (em dispositivo **Android**)
 
 ## 📁 Estrutura do Projeto
@@ -19,13 +19,22 @@ Construir uma aplicação fullstack que permita aos usuários cadastrar, visuali
 .
 ├── README.md
 ├── package-lock.json
-└── package.json
+├── package.json
+└── src
+    └── server.js
 ```
 
-##  🔧 Instalação
+## 🔧 Instalação
 
 ```bash
-git clone https://github.com/angelo-sigo/gerenciador-tarefas
+# Clone o repositório
+git clone https://github.com/angelo-sigo/Takser.git
+
+# Acesse o diretório do projeto
+cd Takser
+
+# Instale as depedências do projeto
+npm install
 ```
 
 ## 🗺️ Roadmap do Projeto
@@ -37,9 +46,10 @@ git clone https://github.com/angelo-sigo/gerenciador-tarefas
 - [ ] Integração com frontend (fetch API)
 - [ ] Deploy
 
-## ✍️ Autorr
+## ✍️ Autor 
 
 **Angelo Silva**
+
 Técnico em Informática | Desenvolvedor em formação
 
 - 🔗 [LinkedIn](https://linkedin.com/in/angelo-sigo)
