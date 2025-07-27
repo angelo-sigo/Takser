@@ -40,7 +40,7 @@ npm install
 ## 🗺️ Roadmap do Projeto
 
 - [X] Configuração do ambiente
-- [ ] Estrutura básica do backend com Express
+- [X] Estrutura básica do backend com Express
 - [ ] Primeiras rotas da API (CRUD de tarefas)
 - [ ] Interface responsiva e usável
 - [ ] Integração com frontend (fetch API)
