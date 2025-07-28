@@ -5,7 +5,9 @@
   "author": "Angelo Silva",
   "license": "UNLICENSED",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "node ./src/config/setupDatabase.js && node ./src/server.js"
+  },
   "dependencies": {
     "dotenv": "^17.2.0",
     "express": "^5.1.0"
