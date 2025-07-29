@@ -22,13 +22,10 @@ http://localhost:3000
 
 ```json
 {
-    "id": "abc123",
     "title": "Comprar pão",
     "done": false
 }
 ```
-
-> ⚠️ **Geração de ID automática** ainda será implementada. Por enquanto, é necessário enviar o campo `id` manualmente no corpo da requisição.
 
 > ⚠️ A  **validação dos dados de entrada** (como tipos, campos obrigatórios e formatos) será adicionada em versões futuras para aumentar a segurança da aplicação.
 

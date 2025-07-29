@@ -1,3 +1,4 @@
+const { v4: uuidv4 } = require('uuid');
 const tasksRepository = require('../repositories/tasksRepository');
 
 // Retorna todas as tarefas
@@ -6,11 +7,18 @@ async function getAllTasks() {
 }
 
 // Adiciona uma nova tarefa
-async function addTask(task) {
+async function addTask(taskData) {
   const tasks = await tasksRepository.readTasks();
-  tasks.push(task);
+
+  const newTask = {
+    id: uuidv4(),
+    title: taskData.title,
+    done: taskData.done
+  };
+
+  tasks.push(newTask);
   await tasksRepository.writeTasks(tasks);
-  return task;
+  return newTask;
 }
 
 // Outros métodos futuros (ex: updateTask, deleteTask, getTaskById, etc.)
