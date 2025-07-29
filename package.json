@@ -1,7 +1,7 @@
 {
   "name": "gerenciador-tarefas",
   "description": "Gerenciador de tarefas pessoal com autenticação",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "Angelo Silva",
   "license": "UNLICENSED",
   "main": "index.js",
