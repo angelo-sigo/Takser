@@ -21,9 +21,24 @@ async function addTask(taskData) {
   return newTask;
 }
 
+async function updateTask(id, data) {
+  const tasks = await tasksRepository.readTasks();
+  const index = tasks.findIndex(task => task.id === id);
+  if (index === -1) return null;
+
+  // Atualiza apenas os campos permitidos
+  tasks[index].title = data.title;
+  tasks[index].done = data.done;
+
+  await tasksRepository.writeTasks(tasks);
+  return tasks[index];
+}
+
 // Outros métodos futuros (ex: updateTask, deleteTask, getTaskById, etc.)
+ 
 
 module.exports = {
   getAllTasks,
-  addTask
+  addTask,
+  updateTask,
 };

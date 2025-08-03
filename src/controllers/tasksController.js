@@ -23,7 +23,22 @@ async function createTask(req, res) {
   }
 }
 
+// PUT /tasks/:id - Atualiza uma tarefa específica
+async function updateTask(req, res) {
+  try {
+    const updated = await tasksService.updateTask(req.params.id, req.body);
+    if (!updated) {
+      return res.status(404).json({ error: 'Tarefa não encontrada' });
+    }
+    res.json(updated);
+  } catch (err) {
+    console.error('Erro ao atualizar tarefa:', err);
+    res.status(500).json({ error: 'Erro interno ao atualizar tarefa' });
+  }
+}
+
 module.exports = {
   listTasks,
   createTask,
+  updateTask,
 };
