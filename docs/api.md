@@ -27,7 +27,9 @@ http://localhost:3000
 }
 ```
 
-> ⚠️ A  **validação dos dados de entrada** (como tipos, campos obrigatórios e formatos) será adicionada em versões futuras para aumentar a segurança da aplicação.
+> ℹ️ O campo `id` **não deve ser enviado pelo cliente** — ele é gerado automaticamente pelo sistema.
+
+> ✅ Esta rota já conta com validação dos dados de entrada (tipos e campos obrigatórios), feita com a biblioteca Joi.
 
 ---
 

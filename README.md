@@ -69,7 +69,7 @@ curl http://localhost:3000/tasks
 ```bash
 curl -X POST http://localhost:3000/tasks \
 -H "Content-Type: application/json" \
--d '{"id": 1, "title": "Aprender Node.js", "done": false}'
+-d '{"title": "Aprender Node.js", "done": false}'
 ```
 
 ## 🚀 Tecnologias Utilizadas
@@ -83,6 +83,9 @@ curl -X POST http://localhost:3000/tasks \
 - Node.js
 - Express
 - Dotenv
+
+**Validação de Dados:**
+- Joi
 
 **Persistência de Dados:** 
 - Armazenamento local com arquivos JSON
