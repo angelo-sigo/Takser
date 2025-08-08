@@ -49,3 +49,22 @@ http://localhost:3000
   ...
 ]
 ```
+
+### Atualizar uma tarefa existente
+
+- **Método:** PUT
+- **Endpoint:** `/tasks/:id`
+- **Corpo da requisição:**
+
+```json
+{
+  "title": "Comprar leite",
+  "done": true
+}
+```
+
+> ℹ️ Caso o id informado **não exista**, o sistema retorna um erro 404 com a mensagem "Tarefa não encontrada".
+
+> ℹ️ Esta rota **também valida os dados de entrada**.
+
+> ⚠️ Todos os campos enviados no método `POST` são obrigatórios no corpo da requisição, mesmo para atualização parcial.
