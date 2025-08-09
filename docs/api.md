@@ -40,11 +40,11 @@ http://localhost:3000
 
 **Respostas possíveis:**
 
-| Código | Descrição                        | Exemplo de corpo                                                               |
-|--------|----------------------------------|--------------------------------------------------------------------------------|
-| 201    | Tarefa criada com sucesso        | `json { "id": "uuid", "title": "Comprar pão", "done": false } `                |
-| 400    | Dados inválidos (validação Joi)  | `json { "error": "Dados inválidos", "details": ["\"title\" é obrigatório"] } ` |
-| 415    | Content-Type inválido            | `json { "error": "Content-Type deve ser application/json" } `                  |
+| Código | Descrição                        | Exemplo de corpo                                                          |
+|--------|----------------------------------|---------------------------------------------------------------------------|
+| 201    | Tarefa criada com sucesso        | `{ "id": "uuid", "title": "Comprar pão", "done": false } `                |
+| 400    | Dados inválidos (validação Joi)  | `{ "error": "Dados inválidos", "details": ["\"title\" é obrigatório"] } ` |
+| 415    | Content-Type inválido            | `{ "error": "Content-Type deve ser application/json" } `                  |
 
 > ℹ️ O campo `id` **não deve ser enviado pelo cliente** — ele é gerado automaticamente pelo sistema.
 
@@ -89,11 +89,11 @@ http://localhost:3000
 
 **Respostas possíveis:**
 
-| Código | Descrição                        | Exemplo de corpo                                                                    |
-|--------|----------------------------------|-------------------------------------------------------------------------------------|
-| 200    | Tarefa atualizada com sucesso    | `json { "id": "uuid", "title": "Comprar leite", "done": true } `                    |
-| 400    | Dados inválidos (validação Joi)  | `json { "error": "Dados inválidos", "details": ["\"done\" deve ser booleano"] } `   |
-| 404    | Tarefa não encontrada            | `json { "error": "Tarefa não encontrada" } `                                        |
+| Código | Descrição                        | Exemplo de corpo                                                               |
+|--------|----------------------------------|--------------------------------------------------------------------------------|
+| 200    | Tarefa atualizada com sucesso    | `{ "id": "uuid", "title": "Comprar leite", "done": true } `                    |
+| 400    | Dados inválidos (validação Joi)  | `{ "error": "Dados inválidos", "details": ["\"done\" deve ser booleano"] } `   |
+| 404    | Tarefa não encontrada            | `{ "error": "Tarefa não encontrada" } `                                        |
 
 > ⚠️ Todos os campos enviados no método `PUT` são obrigatórios, mesmo para atualização parcial.
 
