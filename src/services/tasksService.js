@@ -34,11 +34,14 @@ async function updateTask(id, data) {
   return tasks[index];
 }
 
-// Outros métodos futuros (ex: updateTask, deleteTask, getTaskById, etc.)
- 
+async function deleteTask(id) {
+  const tasks = await tasksRepository.readTasks();
+  const index = tasks.findIndex(task => task.id === id);
+  if (index === -1) return null;
 
-module.exports = {
-  getAllTasks,
-  addTask,
-  updateTask,
-};
+  tasks.splice(index, 1);
+  await tasksRepository.writeTasks(tasks);
+  return true;
+}
+
+module.exports = { getAllTasks, addTask, updateTask, deleteTask };

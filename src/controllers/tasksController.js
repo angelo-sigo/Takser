@@ -35,4 +35,19 @@ async function updateTask(req, res, next) {
   }
 }
 
-module.exports = { listTasks, createTask, updateTask };
+// DELETE /tasks/:id - Remove uma tarefa
+async function deleteTask(req, res, next) {
+  try {
+    const deleted = await tasksService.deleteTask(req.params.id);
+    if (!deleted) {
+      const error = new Error('Tarefa não encontrada');
+      error.status = 404;
+      throw error;
+    }
+    res.status(204).end(); // No Content, pois delete não retorna corpo
+  } catch (err) {
+    next(err);
+  }
+}
+
+module.exports = { listTasks, createTask, updateTask, deleteTask };

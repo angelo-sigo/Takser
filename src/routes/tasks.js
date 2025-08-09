@@ -8,5 +8,6 @@ const checkJsonContentType = require('../middlewares/checkJsonContentType');
 router.get('/', tasksController.listTasks);
 router.post('/', checkJsonContentType, validateTask, tasksController.createTask);
 router.put('/:id', checkJsonContentType, validateTask, tasksController.updateTask);
+router.delete('/:id', tasksController.deleteTask);
 
 module.exports = router;
