@@ -5,12 +5,15 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const tasksRoutes = require('./routes/tasks.js');
+const errorHandler = require('./middlewares/errorHandler');
 
 // Middleware para habilitar JSON
 app.use(express.json());
 
 // Rota de teste (temporária)
 app.use('/tasks', tasksRoutes);
+
+app.use(errorHandler);
 
 // Inicializa o servidor
 app.listen(PORT, () => {

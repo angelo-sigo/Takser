@@ -1,44 +1,38 @@
 const tasksService = require('../services/tasksService');
 
 // GET /tasks - Lista todas as tarefas
-async function listTasks(req, res) {
+async function listTasks(req, res, next) {
   try {
     const tasks = await tasksService.getAllTasks();
     res.json(tasks);
   } catch (err) {
-    console.error('Erro ao listar tarefas:', err);
-    res.status(500).json({ error: 'Erro ao listar tarefas' });
+    next(err);
   }
 }
 
-// POST /tasks - Adiciona uma nova tarefa
-async function createTask(req, res) {
+// POST /tasks - Cria nova tarefa
+async function createTask(req, res, next) {
   try {
-    const newTask = req.body;
-    const createdTask = await tasksService.addTask(newTask);
-    res.status(201).json(createdTask);
+    const task = await tasksService.addTask(req.body);
+    res.status(201).json(task);
   } catch (err) {
-    console.error('Erro ao criar tarefa:', err);
-    res.status(500).json({ error: 'Erro ao criar tarefa' });
+    next(err);
   }
 }
 
-// PUT /tasks/:id - Atualiza uma tarefa específica
-async function updateTask(req, res) {
+// PUT /tasks/:id - Atualiza tarefa
+async function updateTask(req, res, next) {
   try {
     const updated = await tasksService.updateTask(req.params.id, req.body);
     if (!updated) {
-      return res.status(404).json({ error: 'Tarefa não encontrada' });
+      const error = new Error('Tarefa não encontrada');
+      error.status = 404;
+      throw error;
     }
     res.json(updated);
   } catch (err) {
-    console.error('Erro ao atualizar tarefa:', err);
-    res.status(500).json({ error: 'Erro interno ao atualizar tarefa' });
+    next(err);
   }
 }
 
-module.exports = {
-  listTasks,
-  createTask,
-  updateTask,
-};
+module.exports = { listTasks, createTask, updateTask };
